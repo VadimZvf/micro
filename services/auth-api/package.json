@@ -1,0 +1,20 @@
+{
+    "name": "microfrontend-auth-api",
+    "version": "1.0.0",
+    "description": "auth service",
+    "main": "index.js",
+    "scripts": {
+        "start:dev": "nodemon index.js",
+        "start:fragments": "lerna run --parallel start",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Vadim Zaynetdinov",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "express": "^4.16.4"
+    },
+    "devDependencies": {
+        "nodemon": "^1.18.10"
+    }
+}
