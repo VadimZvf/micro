@@ -2,12 +2,14 @@ import * as React from 'react';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import fetchUsers from './actions/users-fetch';
+import startWatchEventsFromHeader from './actions/handle-event';
 
 class Main extends React.Component {
     static propTypes = {
         users: propTypes.array,
         isPending: propTypes.bool,
-        fetchUsers: propTypes.func
+        fetchUsers: propTypes.func,
+        startWatchEventsFromHeader: propTypes.func
     };
     static defaultProps = {
         fetchUsers: () => {}
@@ -18,6 +20,7 @@ class Main extends React.Component {
 
     componentDidMount() {
         this.props.fetchUsers();
+        this.props.startWatchEventsFromHeader();
     }
 
     render() {
@@ -27,7 +30,7 @@ class Main extends React.Component {
                 <div>
                     {this.props.isPending
                         ? 'Loading...'
-                        : this.props.users.map(user => <div key={user.id}>{user.name}</div>)}
+                        : this.props.users.map((user, index) => <div key={`${user.id}-${index}`}>{user.name}</div>)}
                 </div>
             </div>
         );
@@ -43,5 +46,5 @@ const mapStateToProps = globalState => {
 
 export default connect(
     mapStateToProps,
-    { fetchUsers }
+    { fetchUsers, startWatchEventsFromHeader }
 )(Main);

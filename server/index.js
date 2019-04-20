@@ -10,7 +10,7 @@ const fetchUsersFragment = createFragment('http://localhost:8082');
 
 app.set('views', './server/views');
 app.set('view engine', 'hbs');
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use('/build', express.static(path.join(__dirname, 'build')));
 
 app.get('/', async (req, res) => {
     const headerFragment = await fetchHeaderFragment();

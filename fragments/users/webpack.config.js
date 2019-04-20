@@ -46,5 +46,9 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'client.css'
         })
-    ]
+    ],
+    externals: {
+        react: 'react',
+        'react-dom': 'reactDom'
+    }
 };
