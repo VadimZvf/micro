@@ -1,27 +1,29 @@
 import * as React from 'react';
-import Button from './components/button';
 import styles from './app.css';
 
-const eventType = 'FIRST_EVENT';
+const eventAddToCart = 'ADD_PRODUCT_TO_CART';
 
-class App extends React.Component {
+class Header extends React.Component {
     state = {
-        count: 0
+        product: null
     };
 
-    handleClick = () => {
-        this.setState({ count: this.state.count + 1 }, () => {
-            window.__EVENT_BUS__.publish(eventType, `message from header: ${this.state.count}`);
+    componentDidMount() {
+        window.__EVENT_BUS__.subscribe(eventAddToCart, product => {
+            this.setState({ product });
         });
-    };
+    }
 
     render() {
         return (
             <div className={styles.wrap}>
-                Header fragment!!! <Button onClick={this.handleClick}>Test</Button>
+                <a href="/" className={styles.logo}>
+                    Logo
+                </a>
+                {this.state.product && <div className={styles.cart}>Product in basket: {this.state.product.name}</div>}
             </div>
         );
     }
 }
 
-export default App;
+export default Header;

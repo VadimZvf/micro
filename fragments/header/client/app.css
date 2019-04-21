@@ -1,5 +1,15 @@
 .wrap {
+    display: flex;
+    justify-content: space-between;
     padding: 0.2rem 3rem;
     background: #d5ebde;
+}
+
+.logo {
+    text-decoration: none;
+    color: #143b4e;
+}
+
+.cart {
     color: #143b4e;
 }

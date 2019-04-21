@@ -1,17 +1,19 @@
 const axios = require('axios');
 
-function fetchFragment(url) {
-    return async () => {
+function fetchFragment(servicePath) {
+    return async (route = '') => {
+        const requestPath = `${servicePath}${route}`;
+
         try {
-            const response = await axios.get(url);
+            const response = await axios.get(requestPath);
 
             const jsLink = response.headers.jslink;
             const cssLink = response.headers.csslink;
 
             return `
-            <link rel="stylesheet" href="${url}${cssLink}">
+            <link rel="stylesheet" href="${servicePath}${cssLink}">
             ${response.data}
-            <script src="${url}${jsLink}"></script>
+            <script src="${servicePath}${jsLink}"></script>
             `;
         } catch (e) {
             // log...

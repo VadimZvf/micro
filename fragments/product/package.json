@@ -1,0 +1,53 @@
+{
+    "name": "microfrontend-product",
+    "version": "1.0.0",
+    "description": "product view fragment",
+    "main": "server/index.js",
+    "scripts": {
+        "build": "npm run clean && cross-env NODE_ENV=production webpack --progress --colors",
+        "watch": "cross-env NODE_ENV=development webpack --watch",
+        "start": "cross-env NODE_ENV=development nodemon index.js",
+        "clean": "rimraf build/*",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Vadim Zaynetdinov",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.18.0",
+        "body-parser": "^1.18.3",
+        "cookie-parser": "^1.4.4",
+        "core-js": "^3.0.0",
+        "express": "^4.16.4",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-redux": "^6.0.1",
+        "react-router-dom": "^5.0.0",
+        "redux": "^4.0.1",
+        "redux-thunk": "^2.3.0",
+        "regenerator-runtime": "^0.13.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.4.0",
+        "@babel/plugin-proposal-class-properties": "^7.4.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+        "@babel/plugin-transform-runtime": "^7.4.0",
+        "@babel/preset-env": "^7.4.2",
+        "@babel/preset-react": "^7.0.0",
+        "@babel/register": "^7.4.0",
+        "@babel/runtime": "^7.4.3",
+        "autoprefixer": "^9.5.0",
+        "babel-loader": "^8.0.5",
+        "babel-plugin-css-modules-transform": "^1.6.2",
+        "cross-env": "^5.2.0",
+        "css-loader": "^1.0.1",
+        "mini-css-extract-plugin": "^0.5.0",
+        "nodemon": "^1.18.10",
+        "postcss": "^7.0.14",
+        "postcss-import": "^12.0.1",
+        "postcss-loader": "^3.0.0",
+        "rimraf": "^2.6.3",
+        "style-loader": "^0.23.1",
+        "webpack": "^4.29.6",
+        "webpack-cli": "^3.3.0"
+    }
+}
